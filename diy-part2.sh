@@ -25,8 +25,8 @@ WIFI_5G_CHANNEL="${WIFI_5G_CHANNEL:-auto}"     # 信道（auto = 自动选择）
 WIFI_5G_HTMODE="${WIFI_5G_HTMODE:-HE160}"      # 160MHz（WiFi6）；回落 HE80
 WIFI_5G_FALLBACK="${WIFI_5G_FALLBACK:-HE80}"   # 硬件不支持 160MHz 时的回落值
 
-# 可由 workflow 的 fw_author 输入项覆盖（经 env 注入）；本地单独跑时默认 oyk470p
-FW_AUTHOR="${FW_AUTHOR:-oyk470p}"
+# 可由 workflow 的 fw_author 输入项覆盖（经 env 注入）；本地单独跑时默认 Nokia
+FW_AUTHOR="${FW_AUTHOR:-Nokia}"
 FW_BUILD_TIME="${FW_BUILD_TIME:-}"
 FW_DESC_SUFFIX="${FW_DESC_SUFFIX:-}"
 
