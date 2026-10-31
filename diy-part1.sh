@@ -257,7 +257,7 @@ fi
 # --- openclash ---
 if [ "$ADD_OPENCLASH" = "true" ]; then
   echo "::warning::OpenClash 会触发 Ruby/Rust 编译，耗时极长"
-  clone https://github.com/vernesong/OpenClash "$PKG_DIR/OpenClash" dev
+  clone https://github.com/vernesong/OpenClash "$PKG_DIR/OpenClash" "dev" "pkg"
   mv "$PKG_DIR/OpenClash/luci-app-openclash" "$PKG_DIR/luci-app-openclash" 2>/dev/null
   rm -rf "$PKG_DIR/OpenClash"
 fi
