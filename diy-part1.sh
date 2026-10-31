@@ -23,7 +23,7 @@ ADD_AURORA=true        # luci-theme-aurora：Aurora 风格主题
 ADD_FLUENT=false       # luci-theme-fluent：Fluent 2 风格主题
 ADD_FLUENT_LITE=false  # luci-theme-fluent-lite：轻量版（与 fluent 互斥，二选一）
 ADD_FLUENT_DASH=false  # luci-mod-fluentdashboard：可选状态概览卡片
-ADD_PASSWALL=true      # luci-app-passwall（含依赖源）
+ADD_PASSWALL2=true     # luci-app-passwall2（含依赖源）
 ADD_OPENCLASH=true     # luci-app-openclash ⚠ 依赖 Ruby/Rust，编译极慢
 ADD_MOSDNS=false       # luci-app-mosdns + v2ray-geodata
 ADD_LUCKY=false        # luci-app-lucky（DDNS + socat）
@@ -249,10 +249,10 @@ if [ "$ADD_AURORA" = "true" ]; then
   clone https://github.com/eamonxg/luci-app-aurora-config "$PKG_DIR/luci-app-aurora-config" master
 fi
 # --- passwall ---
-if [ "$ADD_PASSWALL" = "true" ]; then
+if [ "$ADD_PASSWALL2" = "true" ]; then
   clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages "$PKG_DIR/openwrt-passwall-packages" main
-  clone https://github.com/Openwrt-Passwall/openwrt-passwall "$PKG_DIR/openwrt-passwall" main
-  rm -rf "$PKG_DIR/openwrt-passwall/luci-app-passwall" 2>/dev/null
+  clone https://github.com/Openwrt-Passwall/openwrt-passwall2 "$PKG_DIR/openwrt-passwall2" main
+  rm -rf "$PKG_DIR/Openwrt-Passwall/luci-app-passwall2" 2>/dev/null
 fi
 # --- openclash ---
 if [ "$ADD_OPENCLASH" = "true" ]; then
