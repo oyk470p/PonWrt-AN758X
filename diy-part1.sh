@@ -264,11 +264,16 @@ if [ "$ADD_OPENCLASH" = "true" ]; then
 fi
 # --- honk ---
 if [ "$ADD_HONK" = "true" ]; then
-  WD_TMP="$(mktemp -d)/wd"
-  clone https://github.com/szwjp/luci-app-honk "$PKG_DIR/luci-app-honk" main  
-  rm -rf "$PKG_DIR/luci-app-honk"
-  cp -r "$WD_TMP/luci-app-honk" "$PKG_DIR/luci-app-honk"
-  rm -rf "$WD_TMP"  
+  HONK_TMP="$(mktemp -d)/honk"
+  if ! clone "https://github.com/szwjp/luci-app-honk" "$HONK_TMP" main; then
+    echo "::error::honk 拉取失败"
+    exit 1
+  fi
+  # 将整个仓库拷贝到 package/honk，而不是 package/custom
+  rm -rf package/honk
+  cp -r "$HONK_TMP" package/honk
+  rm -rf "$HONK_TMP"
+  echo "✅ 已拷贝: honk 到 package/honk"
 fi
 # --- mosdns ---
 if [ "$ADD_MOSDNS" = "true" ]; then
