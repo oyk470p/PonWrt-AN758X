@@ -264,7 +264,11 @@ if [ "$ADD_OPENCLASH" = "true" ]; then
 fi
 # --- honk ---
 if [ "$ADD_HONK" = "true" ]; then
+  WD_TMP="$(mktemp -d)/wd"
   clone https://github.com/szwjp/luci-app-honk "$PKG_DIR/luci-app-honk" main  
+  rm -rf "$PKG_DIR/luci-app-honk"
+  cp -r "$WD_TMP/luci-app-honk" "$PKG_DIR/luci-app-honk"
+  rm -rf "$WD_TMP"  
 fi
 # --- mosdns ---
 if [ "$ADD_MOSDNS" = "true" ]; then
