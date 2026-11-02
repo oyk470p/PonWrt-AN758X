@@ -251,9 +251,8 @@ if [ "$ADD_AURORA" = "true" ]; then
 fi
 # --- passwall ---
 if [ "$ADD_PASSWALL2" = "true" ]; then
-  clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages "$PKG_DIR/openwrt-passwall-packages" main
-  clone https://github.com/Openwrt-Passwall/openwrt-passwall2 "$PKG_DIR/openwrt-passwall2" main
-  rm -rf "$PKG_DIR/Openwrt-Passwall/luci-app-passwall2" 2>/dev/null
+  clone https://github.com/Openwrt-Passwall/openwrt-passwall2.git "package/passwall2" main
+  clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git "package/passwall-packages" main
 fi
 # --- openclash ---
 if [ "$ADD_OPENCLASH" = "true" ]; then
@@ -264,16 +263,7 @@ if [ "$ADD_OPENCLASH" = "true" ]; then
 fi
 # --- honk ---
 if [ "$ADD_HONK" = "true" ]; then
-  HONK_TMP="$(mktemp -d)/honk"
-  if ! clone "https://github.com/szwjp/luci-app-honk" "$HONK_TMP" main; then
-    echo "::error::honk 拉取失败"
-    exit 1
-  fi
-  # 将整个仓库拷贝到 package/honk，而不是 package/custom
-  rm -rf package/honk
-  cp -r "$HONK_TMP" package/honk
-  rm -rf "$HONK_TMP"
-  echo "✅ 已拷贝: honk 到 package/honk"
+  clone "https://github.com/szwjp/luci-app-honk" "package/honk" main  
 fi
 # --- mosdns ---
 if [ "$ADD_MOSDNS" = "true" ]; then
