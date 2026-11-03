@@ -25,7 +25,7 @@ ADD_FLUENT_LITE=false  # luci-theme-fluent-lite：轻量版（与 fluent 互斥�
 ADD_FLUENT_DASH=false  # luci-mod-fluentdashboard：可选状态概览卡片
 ADD_PASSWALL2=true     # luci-app-passwall2（含依赖源）
 ADD_OPENCLASH=true     # luci-app-openclash ⚠ 依赖 Ruby/Rust，编译极慢
-ADD_HONK=false          # luci-app-honk
+ADD_HONK=ture          # luci-app-honk
 ADD_MOSDNS=false       # luci-app-mosdns + v2ray-geodata
 ADD_LUCKY=false        # luci-app-lucky（DDNS + socat）
 ADD_TAILSCALE=false    # luci-app-tailscale
@@ -263,7 +263,7 @@ if [ "$ADD_OPENCLASH" = "true" ]; then
 fi
 # --- honk ---
 if [ "$ADD_HONK" = "true" ]; then
-  clone "https://github.com/szwjp/luci-app-honk" "package/honk" main  
+  clone "https://github.com/kenzok8/openwrt-honk" "package/honk" main  
 fi
 # --- mosdns ---
 if [ "$ADD_MOSDNS" = "true" ]; then
