@@ -21,8 +21,8 @@ readonly PKGINFO="tmp/.packageinfo"
 # 插件开关（显式声明每一个，避免未定义变量）
 # ---------------------------------------------------------
 readonly ADD_AIROHA_NPU=true    # luci-app-airoha-npu（Airoha SoC 状态页）
-readonly ADD_PASSWALL=false     # luci-app-passwall（含依赖源）
-readonly ADD_OPENCLASH=false    # luci-app-openclash ⚠ 依赖 Ruby/Rust，编译极慢
+readonly ADD_PASSWALL2=true     # luci-app-passwall2（含依赖源）
+readonly ADD_OPENCLASH=true     # luci-app-openclash ⚠ 依赖 Ruby/Rust，编译极慢
 readonly ADD_MOSDNS=false       # luci-app-mosdns + v2ray-geodata
 readonly ADD_LUCKY=false        # luci-app-lucky（DDNS + socat）
 readonly ADD_TAILSCALE=false    # luci-app-tailscale
@@ -36,7 +36,7 @@ readonly ADD_SMARTDNS=false     # luci-app-smartdns
 readonly PKG_LIST=(
   "luci-app-airoha-npu|${ADD_AIROHA_NPU}|https://github.com/luanmuc/luci-app-airoha-npu|main"
   "openwrt-passwall-packages|${ADD_PASSWALL}|https://github.com/xiaorouji/openwrt-passwall-packages|main"
-  "openwrt-passwall|${ADD_PASSWALL}|https://github.com/xiaorouji/openwrt-passwall|main"
+  "openwrt-passwall2|${ADD_PASSWALL}|https://github.com/xiaorouji/openwrt-passwall2|main"
   "luci-app-mosdns|${ADD_MOSDNS}|https://github.com/sbwml/luci-app-mosdns|v5"
   "v2ray-geodata|${ADD_MOSDNS}|https://github.com/sbwml/v2ray-geodata|master"
   "luci-app-lucky|${ADD_LUCKY}|https://github.com/sirpdboy/luci-app-lucky|main"
